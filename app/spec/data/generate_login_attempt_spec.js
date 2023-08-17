@@ -1,6 +1,6 @@
 describe('generateLoginAttempt', function () {
   let fn = require('../../data/generate_login_attempt')
-    , createLoginAttemptSuccess = require('../doubles/create_login_attempt_double_success');
+    , createLoginAttemptSuccess = require('../support/doubles/create_login_attempt/create_login_attempt_double_success');
 
   it('creates login attempt and returns id', function (done) {
     let payload = {};
