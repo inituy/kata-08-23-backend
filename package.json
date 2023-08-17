@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongodb": "^5.7.0"
+    "bs58": "^5.0.0",
+    "mongodb": "^5.7.0",
+    "tweetnacl": "^1.0.3"
   }
 }
