@@ -1,9 +1,12 @@
 module.exports = function () {
-  var double = function findProfileByAddressSuccess(params) {
+  var double = function findCampaignByIdSuccess(params) {
     double.params = params;
-    double.result = {
-      _id: Math.random().toString(),
+    double.result = { 
+      _id: params.campaignId,
+      name: Math.random().toString(),
       address: params.address,
+      image: Math.random().toString(),
+      description: Math.random().toString()
     };
     return new Promise(function (ok) {
       var fn = function () { ok(double.result); };
@@ -12,3 +15,4 @@ module.exports = function () {
   };
   return double;
 };
+
