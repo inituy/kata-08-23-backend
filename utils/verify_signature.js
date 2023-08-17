@@ -7,5 +7,5 @@ module.exports = function verifySignature(input) {
     bs58.decode(input.signature),
     bs58.decode(input.address),
   );
-  return verified;
+  return Promise.resolve(verified);
 }
