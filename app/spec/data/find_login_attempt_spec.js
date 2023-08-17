@@ -1,4 +1,4 @@
-fdescribe("findLoginAttempt", () => {
+describe("findLoginAttempt", () => {
   var fn = require("../../data/find_login_attempt.js");
   var findLoginAttemptSuccess = require("../support/doubles/find_login_attempt/success.js"),
     findLoginAttemptFailure = require("../support/doubles/find_login_attempt/failure.js"),
