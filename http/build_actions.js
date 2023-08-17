@@ -27,6 +27,8 @@ module.exports = async function buildActions(depOverrides, envOverrides) {
     findProfileByAddress: require('../mongo/queries/find_profile_by_address.js')(db),
     createProfile: require('../mongo/queries/create_business_profile.js')(db),
     findLoginById: require('../mongo/queries/find_login_by_id.js')(db),
+    findLogin: require('../mongo/queries/find_login')(db),
+    findCampaigns: require('../mongo/queries/find_campaigns')(db)
   };
 
   Object.assign(deps, depOverrides);
@@ -35,6 +37,7 @@ module.exports = async function buildActions(depOverrides, envOverrides) {
     '/create_business_login': require('../app/actions/create_business_login')(deps),
     '/create_login_attempt':  require('../app/actions/create_login_attempt')(deps),
     '/get_business_profile':  require('../app/actions/get_business_profile')(deps),
+    '/get_campaigns':         require('../app/actions/get_campaigns')(deps)
   };
 
   return actions;

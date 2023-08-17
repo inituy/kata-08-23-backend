@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "SHOW_LOGS=true PORT=8989 node ./http/https.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
