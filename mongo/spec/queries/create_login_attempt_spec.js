@@ -9,7 +9,7 @@ describe('createLoginAttempt', function () {
   });
 
   it('creates login attempt', function (done) {
-    fn(db).then((createdAttempt) => {
+    fn(db)().then((createdAttempt) => {
       const query = db.collection('loginAttempts').find().toArray();
       return Promise.all([ createdAttempt, query ])
         .then((responses) => {
