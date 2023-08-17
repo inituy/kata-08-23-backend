@@ -1,4 +1,4 @@
-fdescribe("verify_signature", () => {
+describe("verify_signature", () => {
   var fn = require("../../verification/verify_signature");
   var verifySignatureSuccess = require("../support/doubles/verify_signature/success")
     , verifySignatureFailure = require("../support/doubles/verify_signature/failure")

@@ -23,6 +23,10 @@ module.exports = async function buildActions(depOverrides, envOverrides) {
     saveBusinessLogin: require('../mongo/queries/save_business_login.js')(db),
     verifySignature: require('../utils/verify_signature'),
     createLoginAttempt: require('../mongo/queries/create_login_attempt')(db),
+    findBusinessProfile: require('../mongo/queries/find_profile_by_address.js')(db),
+    findProfileByAddress: require('../mongo/queries/find_profile_by_address.js')(db),
+    createProfile: require('../mongo/queries/create_business_profile.js')(db),
+    findLoginById: require('../mongo/queries/find_login_by_id.js')(db),
   };
 
   Object.assign(deps, depOverrides);
@@ -30,6 +34,7 @@ module.exports = async function buildActions(depOverrides, envOverrides) {
   var actions = {
     '/create_business_login': require('../app/actions/create_business_login')(deps),
     '/create_login_attempt':  require('../app/actions/create_login_attempt')(deps),
+    '/get_business_profile':  require('../app/actions/get_business_profile')(deps),
   };
 
   return actions;

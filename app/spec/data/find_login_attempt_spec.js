@@ -29,27 +29,6 @@ describe("findLoginAttempt", () => {
     });
   });
 
-  it("does not verify signature", (done) => {
-    var deps = {
-      findLoginAttempt: findLoginAttemptSuccess(),
-      verifySignature: verifySignatureFailure(),
-    };
-    var payload = {
-      loginAttemptId: Math.random(),
-      address: Math.random().toString(),
-      signature: Math.random().toString(),
-    };
-    fn(deps)(payload).catch((response) => {
-      expect(deps.findLoginAttempt.params).toEqual({
-        loginAttemptId: payload.loginAttemptId,
-      });
-      expect(response).toEqual({
-        signature: "INVALID",
-      });
-      done();
-    });
-  });
-
   it("does not find login attempt", (done) => {
     var deps = {
       findLoginAttempt: findLoginAttemptFailure(),

@@ -1,6 +1,6 @@
-describe('findLoginAttempt', () => {
-  var fn = require('../../queries/find_login_attempt.js')
-    , loginAttempt
+describe('findLoginById', () => {
+  var fn = require('../../queries/find_login_by_id.js')
+    , login
     , db;
 
   beforeEach(() => {
@@ -8,20 +8,20 @@ describe('findLoginAttempt', () => {
       .then(require('../../connection.js').open)
       .then((_) => { db = _; })
       .then(() => {
-        loginAttempt = {};
-        return db.collection('loginAttempts').insertOne(loginAttempt);
+        login = {};
+        return db.collection('businessLogins').insertOne(login);
       });
-  });
+  })
 
-  it('finds loginAttempt', (done) => {
-    var data = { loginAttemptId: loginAttempt._id };
+  it('finds login', (done) => {
+    var data = { loginId: login._id };
     fn(db)(data).then((result) => {
-      expect(result).toEqual(loginAttempt)
+      expect(result).toEqual(login)
       done();
     });
   });
 
-  it('does not find loginAttempt', (done) => {
+  it('does not find login', (done) => {
     var data = { _id: Math.random() };
     fn(db)(data).then((result) => {
       expect(result).toEqual(null)
