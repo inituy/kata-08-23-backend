@@ -3,7 +3,7 @@ const bs58 = require('bs58');
 
 module.exports = function verifySignature(input) {
   verified = nacl.sign.detached.verify(
-    new TextEncoder().encode('asdfasdfasd'),
+    new TextEncoder().encode(input.loginAttempt),
     bs58.decode(input.signature),
     bs58.decode(input.address),
   );
