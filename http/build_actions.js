@@ -22,12 +22,14 @@ module.exports = async function buildActions(depOverrides, envOverrides) {
     findLoginAttempt: require('../mongo/queries/find_login_attempt.js')(db),
     saveBusinessLogin: require('../mongo/queries/save_business_login.js')(db),
     verifySignature: require('../utils/verify_signature'),
+    createLoginAttempt: require('../mongo/queries/create_login_attempt')(db),
   };
 
   Object.assign(deps, depOverrides);
 
   var actions = {
     '/create_business_login': require('../app/actions/create_business_login')(deps),
+    '/create_login_attempt':  require('../app/actions/create_login_attempt')(deps),
   };
 
   return actions;
