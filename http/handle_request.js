@@ -2,7 +2,7 @@ var URLSearchParams = require('url').URLSearchParams;
 
 module.exports = function handleRequest(actions) {
   function log(a) {
-    if (!process.env.SHOW_LOGS) return;
+    // if (!process.env.SHOW_LOGS) return;
     console.log(new Date(), a);
   }
 

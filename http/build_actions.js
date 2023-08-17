@@ -19,16 +19,15 @@ module.exports = async function buildActions(depOverrides, envOverrides) {
   });
 
   var deps = {
-    findUserById: require('../mongo/queries/find_user_by_id.js')(db),
-    findEntries:  require('../mongo/queries/find_entries.js')(db),
-    saveEntry:    require('../mongo/queries/save_entry.js')(db)
+    findLoginAttempt: require('../mongo/queries/find_login_attempt.js')(db),
+    saveBusinessLogin: require('../mongo/queries/save_business_login.js')(db),
+    verifySignature: require('../utils/verify_signature'),
   };
 
   Object.assign(deps, depOverrides);
 
   var actions = {
-    '/get_entries':  require('../../app/actions/get_entries.js')(deps),
-    '/create_entry': require('../../app/actions/create_entry.js')(deps),
+    '/create_business_login': require('../app/actions/create_business_login')(deps),
   };
 
   return actions;
